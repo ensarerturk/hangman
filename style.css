@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(81, 81, 81);
+    color: aliceblue;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* scroll olmasın diye */
+    overflow: hidden;
+}
+
+.container {
+    padding: 20px 20px;
+    height: 450px;
+    width: 450px;
+    position: relative;
+}
+
+.grafic {
+    fill: transparent;
+    stroke: white;
+    stroke-width: 4px;
+}
+
+.item {
+    display: none;
+}
+
+#popup-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup{
+    background-color: green;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+#wrong-letters {
+    /* pozisyon belirtilmezse otomatik body içerisinde yapar 
+    nerede istenildiğini gçstermek için "position: relative;" istenilen yerde kullanılmalıdır.
+    */
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+#words {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    /* kendi genişliğinin 50% ellisini ortalamak için */
+    transform: translateX(-50%)
+}
+
+.letter {
+    border-bottom: 3px solid yellow;
+    margin: 0 3px;
+    font-size: 30px;
+    height: 40px;
+    width: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message {
+    /* saydam olması için */
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    /* yuvarlak kenar vermek için */
+    border-radius: 5px;
+    padding: 10px 80px;
+    position: absolute;
+    bottom: -80px;
+    /* geçişli bir şekil vermek için kullanılır */
+    transition: transform 0.4s ease-in-out;
+}
+
+#message.show {
+    transform: translateY(-80px);
+}
